@@ -9,8 +9,9 @@ export const AddRandomColor = () => {
   };
 
   const getRandomColor = () => {
-    console.log(Math.floor(Math.random() * 16777215).toString(16));
-    return '#' + Math.floor(Math.random() * 16777215).toString(16);
+    const color = Math.floor(Math.random() * 16777215).toString(16);
+    console.log(color.padStart(6, '0'));
+    return '#' + color.padStart(6, '0');
   };
 
   return (
