@@ -8,17 +8,25 @@ export const CreateColor = () => {
   const handleColorChange = (color: string, operation: string) => {
     switch (color) {
       case 'red':
-        setRed((prevRed) => (operation === 'plus' ? prevRed + 1 : prevRed - 1));
+        setRed((prevRed) => {
+          let newValue = operation === 'plus' ? prevRed + 1 : prevRed - 1;
+          newValue = Math.max(0, Math.min(255, newValue));
+          return newValue;
+        });
         break;
       case 'blue':
-        setBlue((prevBlue) =>
-          operation === 'plus' ? prevBlue + 1 : prevBlue - 1
-        );
+        setBlue((prevBlue) => {
+          let newValue = operation === 'plus' ? prevBlue + 1 : prevBlue - 1;
+          newValue = Math.max(0, Math.min(255, newValue));
+          return newValue;
+        });
         break;
       case 'green':
-        setGreen((prevGreen) =>
-          operation === 'plus' ? prevGreen + 1 : prevGreen - 1
-        );
+        setGreen((prevGreen) => {
+          let newValue = operation === 'plus' ? prevGreen + 1 : prevGreen - 1;
+          newValue = Math.max(0, Math.min(255, newValue));
+          return newValue;
+        });
         break;
       default:
         break;
@@ -44,13 +52,13 @@ export const CreateColor = () => {
               {name}
             </div>
             <button
-              className="border border-black w-44 p-2 rounded-md bg-white"
+              className="border border-black w-44 p-2 rounded-md bg-white hover:bg-gray-200"
               onClick={() => handleColorChange(name.toLowerCase(), 'plus')}
             >
               +
             </button>
             <button
-              className="border border-black w-44 p-2 rounded-md bg-white"
+              className="border border-black w-44 p-2 rounded-md bg-white hover:bg-gray-200"
               onClick={() => handleColorChange(name.toLowerCase(), 'minus')}
             >
               -
@@ -59,7 +67,7 @@ export const CreateColor = () => {
         ))}
       </div>
       <div
-        className="border border-black p-10 rounded-2xl text-white"
+        className="border border-black p-10 rounded-2xl text-white w-44"
         style={{ backgroundColor }}
       >
         RGB({red},{green},{blue})

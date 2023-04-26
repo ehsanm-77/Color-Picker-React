@@ -9,7 +9,7 @@ export default function App() {
         HW 17
       </h1>
       {/* <BenefitsOfReact /> */}
-      <AddRandomColor />
+      {/* <AddRandomColor /> */}
       <CreateColor />
     </div>
   );
